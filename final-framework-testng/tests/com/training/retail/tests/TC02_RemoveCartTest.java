@@ -67,9 +67,21 @@ public class TC02_RemoveCartTest {
 	     WebElement addtoCart = driver.findElement(By.xpath("//*[@id=\"button-cart\"]"));
 	     addtoCart.click();	     
 	     
-	     WebElement cart = driver.findElement(By.xpath("//*[@id=\'cart\']/ul/li/h3/a/i"));
-	     actions.moveToElement(cart).perform();
-	     cart.click();
+	     WebElement shopCart = driver.findElement(By.xpath("//*[@id=\'cart\']/ul/li/h3/a/i"));
+	     actions.moveToElement(shopCart).perform();
+	     shopCart.click();
+	     
+	     
+	     WebElement remove = driver.findElement(By.xpath("/html/body/div[1]/header/div/div/div[3]/div[2]/div/ul/li/div/div/div[1]/table/tbody/tr/td[5]/button"));
+	     actions.moveToElement(remove).perform();
+	     remove.click();
+	     
+	    // WebElement update = driver.findElement(By.xpath("/html/body"))
+	     
+	     WebElement viewCart = driver.findElement(By.linkText("//*[@id=\'cart\'"));
+		 actions.moveToElement(viewCart).perform(); 
+		 viewCart.click();
+		 
 	     
 	}
 	

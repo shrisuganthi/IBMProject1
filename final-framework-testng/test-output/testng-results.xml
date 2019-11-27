@@ -2,40 +2,38 @@
 <testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="53877" started-at="2019-11-27T15:29:23 IST" finished-at="2019-11-27T15:30:17 IST">
+  <suite name="Default suite" duration-ms="41314" started-at="2019-11-27T20:33:00 IST" finished-at="2019-11-27T20:33:41 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="53877" started-at="2019-11-27T15:29:23 IST" finished-at="2019-11-27T15:30:17 IST">
-      <class name="com.training.retail.tests.TC01_ViewCartTest">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.retail.tests.TC01_ViewCartTest@79be0360]" name="setUpBeforeClass" is-config="true" duration-ms="88" started-at="2019-11-27T15:29:23 IST" finished-at="2019-11-27T15:29:23 IST">
+    <test name="Default test" duration-ms="41314" started-at="2019-11-27T20:33:00 IST" finished-at="2019-11-27T20:33:41 IST">
+      <class name="com.training.retail.tests.TC02_RemoveCartTest">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.retail.tests.TC02_RemoveCartTest@79be0360]" name="setUpBeforeClass" is-config="true" duration-ms="34" started-at="2019-11-27T20:33:00 IST" finished-at="2019-11-27T20:33:00 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.retail.tests.TC01_ViewCartTest@79be0360]" name="setUp" is-config="true" duration-ms="30889" started-at="2019-11-27T15:29:23 IST" finished-at="2019-11-27T15:29:54 IST">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.retail.tests.TC02_RemoveCartTest@79be0360]" name="setUp" is-config="true" duration-ms="24066" started-at="2019-11-27T20:33:00 IST" finished-at="2019-11-27T20:33:24 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="namsedRing()[pri:0, instance:com.training.retail.tests.TC01_ViewCartTest@79be0360]" name="namsedRing" duration-ms="22124" started-at="2019-11-27T15:29:54 IST" finished-at="2019-11-27T15:30:16 IST">
-          <exception class="org.openqa.selenium.StaleElementReferenceException">
+        <test-method status="FAIL" signature="namsedRing()[pri:0, instance:com.training.retail.tests.TC02_RemoveCartTest@79be0360]" name="namsedRing" duration-ms="16636" started-at="2019-11-27T20:33:24 IST" finished-at="2019-11-27T20:33:41 IST">
+          <exception class="org.openqa.selenium.JavascriptException">
             <message>
-              <![CDATA[stale element reference: element is not attached to the page document
+              <![CDATA[javascript error: Failed to execute 'elementsFromPoint' on 'Document': The provided double value is non-finite.
   (Session info: chrome=78.0.3904.108)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
 System info: host: 'DESKTOP-UEC12BF', ip: '192.168.122.33', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=78.0.3904.70 (edb9c9f3de0247fd912a77b7f6cae7447f6d3ad5-refs/branch-heads/3904@{#800}), userDataDir=C:\Users\SHRISU~1\AppData\Local\Temp\scoped_dir12168_690467412}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:64288}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 8ded021ac2791f4a2ec73425653c20cf]]>
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=78.0.3904.70 (edb9c9f3de0247fd912a77b7f6cae7447f6d3ad5-refs/branch-heads/3904@{#800}), userDataDir=C:\Users\SHRISU~1\AppData\Local\Temp\scoped_dir16148_772752991}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:57850}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: 83b76d38297869d3077e42d30cfd9493]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+              <![CDATA[org.openqa.selenium.JavascriptException: javascript error: Failed to execute 'elementsFromPoint' on 'Document': The provided double value is non-finite.
   (Session info: chrome=78.0.3904.108)
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '3.6.0', revision: '6fbf3ec767', time: '2017-09-27T15:28:36.4Z'
 System info: host: 'DESKTOP-UEC12BF', ip: '192.168.122.33', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_231'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=78.0.3904.70 (edb9c9f3de0247fd912a77b7f6cae7447f6d3ad5-refs/branch-heads/3904@{#800}), userDataDir=C:\Users\SHRISU~1\AppData\Local\Temp\scoped_dir12168_690467412}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:64288}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
-Session ID: 8ded021ac2791f4a2ec73425653c20cf
+Capabilities [{networkConnectionEnabled=false, chrome={chromedriverVersion=78.0.3904.70 (edb9c9f3de0247fd912a77b7f6cae7447f6d3ad5-refs/branch-heads/3904@{#800}), userDataDir=C:\Users\SHRISU~1\AppData\Local\Temp\scoped_dir16148_772752991}, timeouts={implicit=0, pageLoad=300000, script=30000}, pageLoadStrategy=normal, unhandledPromptBehavior=dismiss and notify, strictFileInteractability=false, platform=XP, proxy=Proxy(), goog:chromeOptions={debuggerAddress=localhost:57850}, acceptInsecureCerts=false, browserVersion=78.0.3904.108, browserName=chrome, javascriptEnabled=true, platformName=XP, setWindowRect=true}]
+Session ID: 83b76d38297869d3077e42d30cfd9493
 at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
 at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
@@ -46,9 +44,10 @@ at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCo
 at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:586)
-at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:279)
-at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
-at com.training.retail.tests.TC01_ViewCartTest.namsedRing(TC01_ViewCartTest.java:81)
+at org.openqa.selenium.remote.RemoteWebDriver.perform(RemoteWebDriver.java:652)
+at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:638)
+at org.openqa.selenium.interactions.Actions.perform(Actions.java:594)
+at com.training.retail.tests.TC02_RemoveCartTest.namsedRing(TC02_RemoveCartTest.java:76)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -79,15 +78,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          </exception> <!-- org.openqa.selenium.JavascriptException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- namsedRing -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.retail.tests.TC01_ViewCartTest@79be0360]" name="tearDown" is-config="true" duration-ms="551" started-at="2019-11-27T15:30:16 IST" finished-at="2019-11-27T15:30:17 IST">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.retail.tests.TC02_RemoveCartTest@79be0360]" name="tearDown" is-config="true" duration-ms="501" started-at="2019-11-27T20:33:41 IST" finished-at="2019-11-27T20:33:41 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.retail.tests.TC01_ViewCartTest -->
+      </class> <!-- com.training.retail.tests.TC02_RemoveCartTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

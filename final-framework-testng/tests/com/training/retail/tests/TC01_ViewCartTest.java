@@ -74,6 +74,10 @@ public class TC01_ViewCartTest {
 	     actions.moveToElement(cart).perform();
 	     cart.click();
 	     
+	     WebElement viewCart = driver.findElement(By.linkText("//*[@id=\'cart\'"));
+	     actions.moveToElement(viewCart).perform();
+	     viewCart.click();
+	     
 	}
 	
 	@AfterMethod
