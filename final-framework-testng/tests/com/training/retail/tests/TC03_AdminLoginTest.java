@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
 import com.training.pom.Admin_LoginPOM;
+import com.training.pom.Dashboard_HomePOM;
 import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
@@ -22,6 +23,8 @@ public class TC03_AdminLoginTest {
 	private WebDriver driver;
 	private String adminURL;
 	private Admin_LoginPOM adminloginPOM;
+	private Dashboard_HomePOM dashhomePOM;
+	
 	private static Properties properties;
 	private ScreenShot screenShot;
 	private Admin_LoginPOM Admin_LoginPOM;
@@ -53,12 +56,15 @@ public class TC03_AdminLoginTest {
 	}
 	
 	@Test
-	public void validLoginTest() {
+	public void validAdminLoginTest() {
 			
 		Admin_LoginPOM admin1 = new Admin_LoginPOM(driver);
 		
 		admin1.retailAdminlogin("admin", "admin@123");
+			
+		Dashboard_HomePOM dash = new Dashboard_HomePOM(driver);
+		dash.getMessage(); 
 				
-	}
+		}
 		
 }

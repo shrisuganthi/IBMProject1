@@ -6,18 +6,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Dashboard_HomePOM {
+public class ViewCartPOM {
 
-private WebDriver driver;
+	private WebDriver driver;
 	
-	public Dashboard_HomePOM(WebDriver driver)
+	public ViewCartPOM(WebDriver driver)
 	{
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath="http://retailm1.upskills.in/admin/index.php?route=common/dashboard&token=dRKboduI7Khg0U6tTelw53W08HgTOLz7")
-	private WebElement dashhome;
+	@FindBy(xpath="//*[@id=\'content\']")private WebElement viewcart;
 	
 	
 	public void getMessage()
@@ -25,8 +24,4 @@ private WebDriver driver;
 		WebElement dashScreen = driver.findElement(By.cssSelector("#content > div.page-header > div > h1"));
 		System.out.println("Admin Logged in and Dashboard Screen displayed successfully");  
 	  }
-		  
-				 
-				
-	
 }

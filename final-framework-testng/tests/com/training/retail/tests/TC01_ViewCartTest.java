@@ -1,5 +1,4 @@
 package com.training.retail.tests;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -19,6 +18,7 @@ import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
 import com.training.pom.Dashboard_HomePOM;
+import com.training.pom.Earing_POM;
 import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
@@ -28,8 +28,10 @@ public class TC01_ViewCartTest {
 	private WebDriver driver;
 	private String baseURL;
 	private LoginPOM loginPOM;
+	private Earing_POM earingPOM;
 	private static Properties properties;
 	private ScreenShot screenshot;
+	private String Earing_POM;
 		
 	@BeforeClass
 	public static void setUpBeforeClass() throws IOException
@@ -50,40 +52,44 @@ public class TC01_ViewCartTest {
 		driver.manage().window().maximize();
 	}
 	
-	
 	@Test
 	public void namsedRing() throws InterruptedException
 	{
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		Thread.sleep(5000);		  
-		  
+	  
 		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 		//Instantiate Action Class        
 	      Actions actions = new Actions(driver);
-        //Retrieve WebElement 'Integer Vitae Iaculis Massa product' to perform mouse hover 
-	      WebElement menuOption = driver.findElement(By.xpath("//*[@id=\'BestsellerProducts_Yllc2v2l\']/div/div[1]/div/div/div[10]/div/div/div[2]/div[1]/a/span/span/img"));
-	     //Mouse hover image 'Integer Vitae Iaculis Massa product'
-	     actions.moveToElement(menuOption).perform();
-	     menuOption.click();
-	     
-	     WebElement addtoCart = driver.findElement(By.xpath("//*[@id=\"button-cart\"]"));
-	     addtoCart.click();	     
-	     
-	     WebElement cart = driver.findElement(By.xpath("//*[@id=\'cart\']/ul/li/h3/a/i"));
-	     actions.moveToElement(cart).perform();
-	     cart.click();
-	     
-	     WebElement viewCart = driver.findElement(By.linkText("//*[@id=\'cart\'"));
-	     actions.moveToElement(viewCart).perform();
-	     viewCart.click();
-	     
+          WebElement ringSelect = driver.findElement(By.xpath("//*[@id=\'BestsellerProducts_Yllc2v2l\']/div/div[1]/div/div/div[10]/div/div/div[2]/div[1]/a/span/span/img"));
+	      actions.moveToElement(ringSelect).perform();
+	      ringSelect.click();
+	      
+	      Earing_POM earing = new Earing_POM(driver);
+	      earing.viewProduct();
+			
+		
+		  WebElement addtoCart = driver.findElement(By.id("button-cart"));
+		  addtoCart.click();
+		  System.out.println("The Product has been added to the cart successfully");
+		  
+		  Thread.sleep(50);
+		  			
+		  WebElement viewCart = driver.findElement(By.xpath("//*[@id=\"cart\"]/ul/li/h3/a/i"));
+		  actions.moveToElement(viewCart).perform(); viewCart.click();
+		  
+		WebElement movetoCart = driver.findElement(By.xpath("//*[@id='cart']/ul/li/div/div/div[3]/a[1]"));
+		actions.moveToElement(movetoCart).perform(); 
+		movetoCart.click();
+		  
+				
 	}
 	
 	@AfterMethod
 	public void tearDown() throws Exception{
-		Thread.sleep(500);
+		//Thread.sleep(500);
 		//driver.quit();
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
 	}
 
 	

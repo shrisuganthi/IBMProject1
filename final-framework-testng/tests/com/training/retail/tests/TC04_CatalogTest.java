@@ -27,6 +27,8 @@ public class TC04_CatalogTest {
 	private static Properties properties;
 	private ScreenShot screenShot;
 	private Admin_LoginPOM Admin_LoginPOM;
+	private Dashboard_HomePOM dashhomePOM;
+	private CategoriesPOM categoriesPOM;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws IOException {
@@ -54,19 +56,21 @@ public class TC04_CatalogTest {
 	}
 	
 	@Test
-	public void validLoginTest() {
+	public void catalogLoginTest() {
 			
 		Admin_LoginPOM admin1 = new Admin_LoginPOM(driver);
 		admin1.retailAdminlogin("admin", "admin@123");
-		Dashboard_HomePOM dash = new Dashboard_HomePOM(driver);
-		
+				
 		CategoriesPOM category = new CategoriesPOM(driver);
 		WebElement element= driver.findElement(By.cssSelector("#menu-catalog > a > i"));
 		element.click();
 		WebElement element1= driver.findElement(By.xpath("//*[@id=\"menu-catalog\"]/ul/li[1]/a"));
 		element1.click();
 		
-		
+		Dashboard_HomePOM d1 = new Dashboard_HomePOM(driver);
+		d1.getMessage();
+		CategoriesPOM cat = new CategoriesPOM(driver);
+		cat.getcategoryMessage(); 
 	}
 
 }

@@ -16,7 +16,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
+import com.training.pom.Admin_LoginPOM;
+import com.training.pom.CheckoutPOM;
+import com.training.pom.Earing_POM;
 import com.training.pom.LoginPOM;
+import com.training.pom.ViewCartPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
@@ -25,6 +29,9 @@ public class TC02_RemoveCartTest {
 	private WebDriver driver;
 	private String baseURL;
 	private LoginPOM loginPOM;
+	private Earing_POM earingPOM;
+	private CheckoutPOM checkoutPOM;
+	private ViewCartPOM viewcartPOM;
 	private static Properties properties;
 	private ScreenShot screenshot;
 		
@@ -53,42 +60,67 @@ public class TC02_RemoveCartTest {
 	{
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		Thread.sleep(5000);		  
-		  
+	  
 		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
-		//Instantiate Action Class        
+				//Instantiate Action Class        
 	      Actions actions = new Actions(driver);
-        //Retrieve WebElement 'Integer Vitae Iaculis Massa product' to perform mouse hover 
-	      WebElement menuOption = driver.findElement(By.xpath("//*[@id=\'BestsellerProducts_Yllc2v2l\']/div/div[1]/div/div/div[10]/div/div/div[2]/div[1]/a/span/span/img"));
-	     //Mouse hover image 'Integer Vitae Iaculis Massa product'
-	     actions.moveToElement(menuOption).perform();
-	     menuOption.click();
-	     
-	     WebElement addtoCart = driver.findElement(By.xpath("//*[@id=\"button-cart\"]"));
-	     addtoCart.click();	     
-	     
-	     WebElement shopCart = driver.findElement(By.xpath("//*[@id=\'cart\']/ul/li/h3/a/i"));
-	     actions.moveToElement(shopCart).perform();
-	     shopCart.click();
-	     
-	     
-	     WebElement remove = driver.findElement(By.xpath("/html/body/div[1]/header/div/div/div[3]/div[2]/div/ul/li/div/div/div[1]/table/tbody/tr/td[5]/button"));
-	     actions.moveToElement(remove).perform();
-	     remove.click();
-	     
-	    // WebElement update = driver.findElement(By.xpath("/html/body"))
-	     
-	     WebElement viewCart = driver.findElement(By.linkText("//*[@id=\'cart\'"));
-		 actions.moveToElement(viewCart).perform(); 
-		 viewCart.click();
+          WebElement ringSelect = driver.findElement(By.xpath("//*[@id=\'BestsellerProducts_Yllc2v2l\']/div/div[1]/div/div/div[10]/div/div/div[2]/div[1]/a/span/span/img"));
+	      actions.moveToElement(ringSelect).perform();
+	      ringSelect.click();
+	      
+	      Earing_POM earing = new Earing_POM(driver);
+	      earing.viewProduct();
+		
+	      //added the product to cart
+		  WebElement addtoCart = driver.findElement(By.id("button-cart"));
+		  addtoCart.click();
+		  System.out.println("The Product has been added to the cart successfully");
+		  
+		  Thread.sleep(50);
+		  //Mouse over to view the cart
+		  WebElement viewCart =driver.findElement(By.xpath("//*[@id=\'cart\']/ul/li/h3/a/i"));
+		  actions.moveToElement(viewCart).perform(); viewCart.click();
+		  System.out.println("Mouse over to View Cart");
+		  
+		
+		/*
+		 * WebElement viewCart =
+		 * driver.findElement(By.xpath("//*[@id='cart']/ul/li/div/div/div[3]/a[1]"));
+		 * actions.moveToElement(viewCart).perform(); viewCart.click();
+		 */
 		 
+		
+		  WebElement movetoCart = driver.findElement(By.xpath("//*[@id='cart']/ul/li/div/div/div[3]/a[1]"));
+		  actions.moveToElement(movetoCart).perform(); movetoCart.click();
+		  System.out.println("Clicked on View Cart");
+		 
+		/*
+		 * ViewCartPOM check = new ViewCartPOM(driver); check.getMessage();
+		 */
+		
+		
+		  
+//		WebElement removefromCart = driver.findElement(By.cssSelector("#cart_form > div > table > tbody > tr > td.quantity > div > span > button.btn.btn-danger.tb_no_text > i"));
+		//WebElement removefromCart = driver.findElement(By.xpath(""));
+	//	actions.moveToElement(removefromCart).perform();
+		//removefromCart.click();
+		
+	//	WebElement updateCart = driver.findElement(By.xpath("//*[@id='cart_form']/div/table/tbody/tr/td[4]/div/span/button[1]"));
+		//actions.moveToElement(updateCart).perform();
+		//updateCart.click();
+	
+		/*
+		 * CheckoutPOM check = new CheckoutPOM(driver); check.viewProduct();
+		 */
+	         
 	     
 	}
 	
 	@AfterMethod
 	public void tearDown() throws Exception{
-		Thread.sleep(500);
+		//Thread.sleep(500);
 		//driver.quit();
+		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.MILLISECONDS);
 	}
 
 }
