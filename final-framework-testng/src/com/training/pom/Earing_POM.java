@@ -23,12 +23,8 @@ public class Earing_POM {
 	public void viewProduct()
 	{
 		System.out.println("Selected Product page displayed successfully");
-		
-				
 	}
-	
-	
-	
+
 	
 	
 }

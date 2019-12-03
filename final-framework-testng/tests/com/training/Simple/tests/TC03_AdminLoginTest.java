@@ -45,8 +45,7 @@ public class TC03_AdminLoginTest {
 		screenShot = new ScreenShot(driver); 
 		driver.get(adminURL);
 		driver.manage().window().maximize();
-			
-			
+						
 	}
 	
 	@AfterMethod
@@ -56,12 +55,12 @@ public class TC03_AdminLoginTest {
 	}
 	
 	@Test
-	public void validAdminLoginTest() {
+	public void validAdminLoginTest()  {
 			
 		Admin_LoginPOM admin1 = new Admin_LoginPOM(driver);
 		
 		admin1.retailAdminlogin("admin", "admin@123");
-			
+		
 		Dashboard_HomePOM dash = new Dashboard_HomePOM(driver);
 		dash.getMessage(); 
 				

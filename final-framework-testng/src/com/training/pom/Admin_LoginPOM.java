@@ -21,6 +21,7 @@ public class Admin_LoginPOM {
 	 * @FindBy(id="input-username") private static WebElement username;
 	 * 
 	 * @FindBy(id="input-password") private static WebElement password;
+	 * @CacheLookup
 	 * 
 	 * @FindBy(xpath="//button[contains(text(),'Login'") private WebElement
 	 * loginBtn;

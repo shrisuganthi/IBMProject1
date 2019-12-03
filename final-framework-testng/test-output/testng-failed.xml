@@ -3,14 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.retail.tests.TC02_RemoveCartTest">
+      <class name="com.training.Medium.tests.TC04_AdminToAddProductTest">
         <methods>
-          <include name="tearDown"/>
-          <include name="namsedRing"/>
+          <include name="filterProductTest"/>
           <include name="setUp"/>
           <include name="setUpBeforeClass"/>
         </methods>
-      </class> <!-- com.training.retail.tests.TC02_RemoveCartTest -->
+      </class> <!-- com.training.Medium.tests.TC04_AdminToAddProductTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

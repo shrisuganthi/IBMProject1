@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class ViewCartPOM {
 
@@ -16,7 +18,8 @@ public class ViewCartPOM {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath="//*[@id=\'content\']")private WebElement viewcart;
+	//@FindBy(xpath="//*[@id=\'content\']")private WebElement viewcart;
+	@FindBy(xpath ="//div[@class='cart-info tb_min_w_500']//a[contains(text(),'Lorem ipsum dolor sit amet')]")private WebElement viewcart;
 	
 	
 	public void getMessage()
@@ -24,4 +27,26 @@ public class ViewCartPOM {
 		WebElement dashScreen = driver.findElement(By.cssSelector("#content > div.page-header > div > h1"));
 		System.out.println("Admin Logged in and Dashboard Screen displayed successfully");  
 	  }
+	
+	public void addToCart()
+	{
+		//Select sizeDropDown = new Select(this.viewcart);
+		
+		WebElement viewCartImag = driver.findElement(By.xpath("//td[contains(text(),'Image')]"));
+		WebElement prodName = driver.findElement(By.xpath("//td[contains(text(),'Product Name')]"));
+		WebElement  model = driver.findElement(By.xpath("//td[contains(text(),'Model')]"));
+		WebElement prodQuantity = driver.findElement(By.xpath("//td[contains(text(),'Quantity')]"));
+		WebElement unitPrice = driver.findElement(By.xpath("//td[contains(text(),'Unit Price')]"));
+		WebElement totalPrice = driver.findElement(By.xpath("//td[contains(text(),'Unit Price')]"));
+		
+		
+		Assert.assertEquals(true, viewCartImag.isDisplayed());
+		Assert.assertEquals(true, prodName.isDisplayed());
+		Assert.assertEquals(true, model.isDisplayed());
+		Assert.assertEquals(true, prodQuantity.isDisplayed());
+		Assert.assertEquals(true, unitPrice.isDisplayed());
+		Assert.assertEquals(true, totalPrice.isDisplayed());
+		System.out.println("Success: The Product has been added to your shopping cart");
+		}
+	
 }

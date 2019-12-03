@@ -14,12 +14,13 @@ public class LoginPOM extends BaseClassPOM
 		PageFactory.initElements(driver, this);
 	}
 	
+	//Page Factory
+	
 	@FindBy(id="input-username")
 	private WebElement userName;
 	
 	@FindBy(id="input-password")
 	private WebElement password;
 	
-	
-	
+		
 }
