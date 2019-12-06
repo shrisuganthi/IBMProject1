@@ -1,5 +1,10 @@
 package com.training.pom;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -33,6 +38,13 @@ public class AddNewProductsPOM {
 	
 	//DataTab
 	//String dataTab = driver.findElement(By.linkText("tab")).findElement(By.xpath("//a[contains(text(),'Data')]")).getAttribute("Data");
+	//DataTabLink
+	@FindBy(xpath="//a[contains(text(),'Data')]")
+	private WebElement dataTab;
+	
+	//LinksTab
+	@FindBy(xpath="//a[contains(text(),'Links')]")
+	private WebElement linksTab;
 	
 	//LinksTab
 	//@FindBy(xpath="//a[contains(text(),'Links')]")
@@ -53,29 +65,48 @@ public class AddNewProductsPOM {
 	//private WebElement recurTab;
 
 	//DiscountTab
-	/*
-	 * @FindBy(xpath="//a[contains(text(),'Discount')]") private WebElement
-	 * discountTab;
-	 * 
-	 * //SpecialTab
-	 * 
-	 * @FindBy(xpath="//a[contains(text(),'Special')]") private WebElement
-	 * specialTab;
-	 * 
-	 * //ImageTab
-	 * 
-	 * @FindBy(xpath="//a[contains(text(),'Image')]") private WebElement imageTab;
-	 * 
-	 * //RewardPointstab
-	 * 
-	 * @FindBy(
-	 * xpath="//ul[@class='nav nav-tabs']//a[contains(text(),'Reward Points')]")
-	 * private WebElement rewardTab;
-	 * 
-	 * //Designtab
-	 * 
-	 * @FindBy(xpath="//a[contains(text(),'Design')]") private WebElement designTab;
-	 */
+	
+	  @FindBy(xpath="//a[contains(text(),'Discount')]") 
+	  private WebElement discountTab;
+	  
+	  @FindBy(xpath="//table[@id='discount']//i[@class='fa fa-plus-circle']")
+	  private WebElement discountAdd;
+	  
+	  @FindBy(xpath="//td[@class='text-right']//input[@placeholder='Quantity']")
+	  private WebElement disquantity;
+	  
+	  @FindBy(xpath="//td[@class='text-right']//input[@placeholder='Price']")
+	  private WebElement disPrice;
+	  
+	  @FindBy(xpath="//*[@id=\"discount-row0\"]/td[5]/div/span/button/i")
+	  private WebElement disStartDate;
+	  
+	  @FindBy(xpath="//*[@id=\"discount-row0\"]/td[6]/div/span/button/i")
+	  private WebElement disEndDate;
+	  
+	  
+	  
+	  
+	  
+	  //SpecialTab
+	  
+	  @FindBy(xpath="//a[contains(text(),'Special')]") private WebElement
+	  specialTab;
+	  
+	  //ImageTab
+	  
+	  @FindBy(xpath="//a[contains(text(),'Image')]") private WebElement imageTab;
+	  
+	  //RewardPointstab
+	  
+	  @FindBy(
+	  xpath="//ul[@class='nav nav-tabs']//a[contains(text(),'Reward Points')]")
+	  private WebElement rewardTab;
+	  
+	  //Designtab
+	  
+	  @FindBy(xpath="//a[contains(text(),'Design')]") private WebElement designTab;
+	 
 	//MandatoryFields
 	//ProductNameField
 	@FindBy(xpath="//input[@id='input-name1']")
@@ -143,8 +174,6 @@ public class AddNewProductsPOM {
 		WebElement imageTab = driver.findElement(By.xpath("//a[contains(text(),'Image')]"));
 		WebElement rewardTab = driver.findElement(By.xpath("//ul[@class='nav nav-tabs']//a[contains(text(),'Reward Points')]"));
 		WebElement designTab = driver.findElement(By.xpath("//a[contains(text(),'Design')]"));
-		
-				
 		this.modelBox.sendKeys("SKU-012");
 		this.priceBox.sendKeys("500");
 		this.quantityBox.sendKeys("50");
@@ -180,4 +209,99 @@ public class AddNewProductsPOM {
 		Assert.assertEquals(true, this.successMsg.isDisplayed());
 		System.out.println("Successfully Added the Product");
 	}
+	
+	
+	public void addNewProdLinktoclick()
+	{
+		this.addnewProductlink.click();
+	}
+	
+	
+	
+	public void generalTabentry(String prodName,String metaTag)
+	{
+		this.prodName.clear();
+		this.prodName.sendKeys(prodName);
+		this.metaTag.clear();
+		this.metaTag.sendKeys(metaTag);
+	}
+	
+	public void dataTabentryclick()
+	{
+		this.dataTab.click();
+	}
+	
+	public void dataTabentry(String modelBox,String priceBox,String quantityBox)
+	{
+		this.modelBox.clear();
+		this.modelBox.sendKeys(modelBox);
+		this.priceBox.clear();
+		this.priceBox.sendKeys(priceBox);
+		this.quantityBox.clear();
+		this.quantityBox.sendKeys(quantityBox);
+	}
+	
+	public void linksTabentryClick()
+	{
+		this.linksTab.click();
+	}
+	
+	public void linksTabentry(String categoryBox)
+	{
+		this.categoryBox.clear();
+		this.categoryBox.sendKeys(categoryBox);
+	}
+	
+	public void clickSave()
+	{
+		this.saveBtn.click();	
+	}
+	
+	public void discountTabclick()
+	{
+		this.discountTab.click();
+	}
+	
+	public void discountAddlink()
+	{
+		this.discountAdd.click();
+	}
+	
+	public void discountAddDetails(String disquantity,String disPrice)
+	{
+		this.disquantity.click();
+		this.disquantity.sendKeys(disquantity);
+		this.disPrice.click();
+		this.disPrice.sendKeys(disPrice);
+	}
+	
+	public void disStartDate(String disStartDate)
+	{ 
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		LocalDate localDate = LocalDate.now();
+		this.disStartDate.sendKeys(dtf.format(localDate));
+	}
+	
+	public void disEndDate(String disEndDate)
+	{
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		Date dt = new Date();
+		Calendar cl = Calendar.getInstance();
+		cl.setTime(dt);
+		cl.add(Calendar.DAY_OF_YEAR,1);
+		dt=cl.getTime();
+		String str = df.format(dt);
+		this.disEndDate.sendKeys(str);
+				
+	}
+	
+	public void rewardTabClick()
+	{
+		this.rewardTab.click();
+	}
+
+
+	
+	
+	
 }

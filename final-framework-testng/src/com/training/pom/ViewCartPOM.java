@@ -19,20 +19,31 @@ public class ViewCartPOM {
 	}
 	
 	//@FindBy(xpath="//*[@id=\'content\']")private WebElement viewcart;
-	@FindBy(xpath ="//div[@class='cart-info tb_min_w_500']//a[contains(text(),'Lorem ipsum dolor sit amet')]")private WebElement viewcart;
+	/*
+	 * @FindBy(xpath
+	 * ="//div[@class='cart-info tb_min_w_500']//a[contains(text(),'Lorem ipsum dolor sit amet')]"
+	 * ) private WebElement viewcart;
+	 */
+	@FindBy(xpath="//a[contains(text(),'View Cart')]")
+	private WebElement viewcartBtn;
 	
-	
+		
 	public void getMessage()
 	  {
 		WebElement dashScreen = driver.findElement(By.cssSelector("#content > div.page-header > div > h1"));
 		System.out.println("Admin Logged in and Dashboard Screen displayed successfully");  
 	  }
 	
-	public void addToCart()
+	
+	/*
+	 * public void clickonviewCartBtn() { this.viewcartBtn.click(); }
+	 */
+	 
+	
+	public void viewCart()
 	{
-		//Select sizeDropDown = new Select(this.viewcart);
-		
-		WebElement viewCartImag = driver.findElement(By.xpath("//td[contains(text(),'Image')]"));
+		WebElement viewcartscreen = driver.findElement(By.xpath("//td[contains(text(),'Product Name')]"));
+		//WebElement viewCartImag = driver.findElement(By.xpath("//td[contains(text(),'Image')]"));
 		WebElement prodName = driver.findElement(By.xpath("//td[contains(text(),'Product Name')]"));
 		WebElement  model = driver.findElement(By.xpath("//td[contains(text(),'Model')]"));
 		WebElement prodQuantity = driver.findElement(By.xpath("//td[contains(text(),'Quantity')]"));
@@ -40,13 +51,15 @@ public class ViewCartPOM {
 		WebElement totalPrice = driver.findElement(By.xpath("//td[contains(text(),'Unit Price')]"));
 		
 		
-		Assert.assertEquals(true, viewCartImag.isDisplayed());
+		//Assert.assertEquals(true, viewCartImag.isDisplayed());
 		Assert.assertEquals(true, prodName.isDisplayed());
 		Assert.assertEquals(true, model.isDisplayed());
 		Assert.assertEquals(true, prodQuantity.isDisplayed());
 		Assert.assertEquals(true, unitPrice.isDisplayed());
 		Assert.assertEquals(true, totalPrice.isDisplayed());
-		System.out.println("Success: The Product has been added to your shopping cart");
+		System.out.println("View Cart page displayed successfully");
 		}
+	
+	
 	
 }

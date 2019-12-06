@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.Medium.tests.TC04_AdminToAddProductTest">
+      <class name="com.training.High.tests.TC01_InvalidDatailsAddingProduct">
         <methods>
-          <include name="filterProductTest"/>
-          <include name="setUp"/>
+          <include name="addaproductusinginvaliddetails"/>
           <include name="setUpBeforeClass"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.training.Medium.tests.TC04_AdminToAddProductTest -->
+      </class> <!-- com.training.High.tests.TC01_InvalidDatailsAddingProduct -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

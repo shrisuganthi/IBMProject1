@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ComplexTestSuite">
+  <test thread-count="1" name="complextestcaseValidation">
+    <classes>
+      <class name="com.training.complex.tests.TC01_InvalidDatailsAddingProduct"/>
+      <class name="com.training.complex.tests.TC02_PlacingOrderandChangeOrderstatus"/>
+      <class name="com.training.complex.tests..TC03_AdmintoAddMultipleProduct"/>
+      <class name="com.training.complex.tests.TC04_InvalidDetailswhileAddingproductwithRewardpoints"/>
+    </classes>
+  </test> <!-- complextestcaseValidation -->
+</suite> <!-- ComplexTestSuite -->

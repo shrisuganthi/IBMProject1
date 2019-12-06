@@ -28,7 +28,8 @@ import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 import com.trianing.waits.TestUtil;
 
-public class TC01_ViewCartTest extends BaseClassPOM{
+public class TC01_ViewCartTest {
+	
 	
 	private WebDriver driver;
 	private String baseURL;
@@ -49,7 +50,7 @@ public class TC01_ViewCartTest extends BaseClassPOM{
 	  @BeforeMethod public void setUp() throws Exception 
 	  { 
 	  driver =  DriverFactory.getDriver(DriverNames.CHROME); 
-	  loginPOM = new LoginPOM(driver);
+	  //loginPOM = new LoginPOM(driver);
 	  baseURL = properties.getProperty("baseURL"); 
 	  screenshot = new  ScreenShot(driver); driver.get(baseURL);
 	  driver.manage().window().maximize();
@@ -64,60 +65,42 @@ public class TC01_ViewCartTest extends BaseClassPOM{
 	  	driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT,TimeUnit.SECONDS);
 		//Instantiate Action Class        
 	      Actions actions = new Actions(driver);
-          WebElement ringSelect = driver.findElement(By.xpath("//*[@id=\'BestsellerProducts_Yllc2v2l\']/div/div[1]/div/div/div[10]/div/div/div[2]/div[1]/a/span/span/img"));
+       //   WebElement ringSelect = driver.findElement(By.xpath("//*[@id=\'BestsellerProducts_Yllc2v2l\']/div/div[1]/div/div/div[10]/div/div/div[2]/div[1]/a/span/span/img"));
+	      WebElement ringSelect = driver.findElement(By.xpath("//*[@id=\'BestsellerProducts_Yllc2v2l\']/div/div/div/div/div[3]/div/div/div[1]/h4/a"));
 	      actions.moveToElement(ringSelect).perform();
 	      ringSelect.click();
 	      
-	      Earing_POM earing = new Earing_POM(driver);
-	      earing.viewProduct();
-			
-	      //Product added to the cart
-		  WebElement addtoCart = driver.findElement(By.id("button-cart"));
+		 //Product added to the cart
+		  WebElement addtoCart = driver.findElement(By.xpath("//button[@id='button-cart']"));
 		  addtoCart.click();
 		  System.out.println("The Product has been added to the cart successfully");
-		  
-		 // Thread.sleep(50);
-		  
-		  //popup getting displayed
-		  
-		  //WebElement wait1 = driver.findElement(By.xpath("//ul[@class='noty_cont noty_layout_topRight']"));
-		/*
-		 * driver.switchTo().alert(); alert.dismiss();
-		 */
-		  String text = driver.findElement(By.cssSelector("noty_message")).getText();
-		  
-		  
-		/*
-		 * try { WebDriverWait wait = new WebDriverWait(driver, 2);
-		 * wait.until(ExpectedConditions.alertIsPresent()); Alert alert =
-		 * driver.switchTo().alert(); System.out.println(alert.getText());
-		 * alert.dismiss(); Assert.assertTrue(alert.getText().contains("Success"));
-		 * System.out.println("Pop Up message displayed"); } catch (Exception e) {
-		 * //exception handling }
-		 */
-		  
-		/*
-		 * WebElement closePopup = driver.findElement(By.xpath("//*[@id=\'close\']"));
-		 * actions.moveToElement(closePopup).perform(); closePopup.click();
-		 */
-		/*
-		 * ViewCartPOM view1 = new ViewCartPOM(driver); view1.addToCart();
-		 */
-		    
+		  	 
+		      
 		  //Mouse over the cart icon and click
 		 // WebElement viewCart = driver.findElement(By.xpath("//*[@id=\'cart\']/ul/li/h3/a/i"));
-		  WebElement mouseoverviewCart = driver.findElement(By.xpath("//span[@class='tb_items'][contains(text(),'1')]"));
-		  actions.moveToElement(mouseoverviewCart).perform();
-		  //mouseoverviewCart.click();
+		/*
+		 * WebElement mouseoverviewCart =
+		 * driver.findElement(By.xpath("//span[@class='tb_items'][contains(text(),'1')]"
+		 * )); actions.moveToElement(mouseoverviewCart).perform();
+		 */  //mouseoverviewCart.click();
 		  
 		  //clicking on the view cart button
 		
-		  WebElement movetoCart = driver.findElement(By.xpath("//a[contains(text(),'View Cart')]"));
-		  actions.moveToElement(movetoCart).perform(); 
-		  movetoCart.click();
-		 
-		  ViewCartPOM view1 = new ViewCartPOM(driver); 
-		  view1.addToCart();
+		  driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT,TimeUnit.SECONDS);
+		  
+		  Earing_POM earingPOM = new Earing_POM(driver);
+		  earingPOM.mouseovertCartImage();
+		
+		 // Actions  actions = new Actions(driver);
+			WebElement clikViewcart = driver.findElement(By.xpath("//a[contains(text(),'View Cart')]"));
+			 // actions.moveToElement(clikViewcart).perform(); 
+			  clikViewcart.click();
+			  System.out.println("View Cart Btn is clicked");
+			  
+		  ViewCartPOM viewcartPOM = new ViewCartPOM(driver); 
+		//  viewcartPOM.clickonviewCartBtn();
+		 viewcartPOM.viewCart();
+		  
 		  
 				
 	}

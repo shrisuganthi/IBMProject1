@@ -17,15 +17,15 @@ private WebDriver driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath="http://retailm1.upskills.in/admin/index.php?route=common/dashboard&token=dRKboduI7Khg0U6tTelw53W08HgTOLz7")
+	@FindBy(xpath="//h1[contains(text(),'Dashboard')]")
 	private WebElement dashhome;
 	
 	
 	public void getMessage()
 	  {
-		WebElement dashScreen = driver.findElement(By.xpath("//h1[contains(text(),'Dashboard')]"));
+		//WebElement dashScreen = driver.findElement(By.xpath("//h1[contains(text(),'Dashboard')]"));
 		//WebElement dashScreen = driver.findElement(By.cssSelector("#content > div.page-header > div > h1"));
-		Assert.assertEquals(true, dashScreen.isDisplayed());
+		Assert.assertEquals(true, this.dashhome.isDisplayed());
 		System.out.println("Admin Logged in and Dashboard Screen displayed successfully");  
 	  }
 	

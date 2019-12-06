@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SimpleTestSuite">
+  <test thread-count="1" name="simpletestcaseValidation">
+    <classes>
+      <class name="com.training.simple.test.TC01_ViewCartTest"/>
+      <class name="com.training.simple.test.TC02_RemoveCartTest"/>
+      <class name="com.training.simple.test.TC03_AdminLoginTest"/>
+      <class name="com.training.simple.test.TC04_CatalogTest"/>
+    </classes>
+  </test> <!-- simpletestcaseValidation -->
+</suite> <!-- SimpleTestSuite -->
